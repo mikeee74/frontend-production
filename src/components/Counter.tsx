@@ -1,20 +1,19 @@
-import React from "react";
-import classes from "./Counter.module.scss";
+import React, {useState} from 'react';
+import classes from './Counter.module.scss';
 
-export const Counter = () => {
-	const [counter, setCounter] = React.useState<number>(0);
+const Counter = () => {
+    const [count, setCount] = useState(0);
 
-	const increment = () => {
-		setCounter((state) => state + 1);
-		setCounter((state) => state + 1);
-	};
+    const increment = () => {
+        setCount(count + 1);
+    }
 
-	return (
-		<div>
-			<h1>{counter}</h1>
-			<button className={classes.button} onClick={increment}>
-				Increment
-			</button>
-		</div>
-	);
+    return (
+        <div className={classes.btn}>
+            <h1>{count}</h1>
+            <button onClick={increment}>increment</button>
+        </div>
+    );
 };
+
+export default Counter;
