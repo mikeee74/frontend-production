@@ -1,4 +1,5 @@
 import React, { FC } from 'react'
+import { useTranslation } from 'react-i18next'
 import { classNames } from 'shared/lib/classNames'
 import { AppLink, AppLinkTheme } from 'shared/ui/AppLink/Applink'
 import { ThemeSwitcher } from 'shared/ui/ThemeSwitcher/ThemeSwitcher'
@@ -9,6 +10,8 @@ interface NavbarProps {
 }
 
 export const Navbar: FC<NavbarProps> = ({className}) => {
+    const {t} = useTranslation()
+
   return (
     <div className={classNames(cls.Navbar, {}, [className])}>
         <div className={cls.links}>
@@ -17,13 +20,13 @@ export const Navbar: FC<NavbarProps> = ({className}) => {
                 to={'/'}
                 theme={AppLinkTheme.SECONDARY}
             >
-                Главная
+                {t('Главная')}
             </AppLink>
             <AppLink 
                 to={'/about'}
                 theme={AppLinkTheme.SECONDARY}
             >
-                О сайте
+                {t('О нас')}
             </AppLink>
         </div>
     </div>
